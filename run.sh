@@ -5,4 +5,5 @@ export FLASK_APP=app.py
 export FLASK_DEBUG=1
 
 # Run the application
-flask run
+#flask run
+python -m flask run
