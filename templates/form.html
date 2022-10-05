@@ -1,4 +1,15 @@
+
+
 {% block content %}
-<h1>Home</h1>
+
+
+<h1>Forms Quiz</h1>
+<hr>
+<p>Hello. Enter a number</p>
+<!--Form asking for a number-->
+<form action="result" method="POST">
+    <input type="text" name="number" id="number">
+    <input type="submit" value="Submit">
+</form>
 
 {% endblock %}

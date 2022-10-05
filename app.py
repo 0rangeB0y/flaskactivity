@@ -1,3 +1,4 @@
+from contextlib import nullcontext
 from datetime import date
 from urllib import request
 from flask import Flask, render_template, request
@@ -18,18 +19,30 @@ def index():
 @app.get('/calculate')
 def displayNumberPage():
     # Complete this function to display form.html page
-    pass
+    return render_template('form.html')
 
 
-@app.route('/calculate', methods=['POST'])
+@app.route('/result', methods=['POST'])
 def checkNumber():
-    # Get Number from form and display message according to number
-    # Display "Number {Number} is even" if given number is even on result.html page
-    # Display "Number {Number} is odd" if given number is odd on result.html page
-    # Display "No number provided" if value is null or blank on result.html page
-    # Display "Provided input is not an integer!" if value is not a number on result.html page
+
     global number
     number = request.form['number']
+    # Get Number from form and display message according to number
+    #number = request.form('number')
+    # Display "Number {Number} is even" if given number is even on result.html page
+    if number == "":
+        return render_template('result.html', numResult = "No number provided")
+    elif not number.isnumeric():
+        return render_template('result.html', numResult = "Not a number")
+    elif int(number) % 2 == 0:
+        return render_template('result.html', numResult = number + " is even")
+    else:
+        return render_template('result.html', numResult = number + " is odd")
+    # Display "Number {Number} is odd" if given number is odd on result.html page
+    # Display "No number provided" if value is null or blank on result.html page
+
+    # Display "Provided input is not an integer!" if value is not a number on result.html page
+    
 
     # Write your to code here to check whether number is even or odd and render result.html page
 
