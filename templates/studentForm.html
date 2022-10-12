@@ -3,4 +3,22 @@
 <h4>Enter Student Information below</h4>
 <!--Form to request user's name-->
 
+<p>Enter Name:</p>
+
+<form action="addStudentOrganisation" method="POST">
+    <input type="text" name="name" id="text">
+
+    <select name="org" id="org">
+        <option value="Basketball Club">Basketball Club</option>
+        <option value="Tennis Club">Tennis Club</option> 
+        <option value="E-Sports Org">E-Sports Org</option> 
+        <option value="Book Club">Book Club</option> 
+        <option value="Sleeping Club">Sleeping Club</option> 
+    </select>
+
+    <input type="submit" value="Submit">
+    
+</form>
+
+
 {% endblock %}
